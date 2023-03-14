@@ -1,40 +1,11 @@
-# pila
-
-Una pila es una colección de elementos que se agregan y se eliminan siguiendo el principio de último en entrar-primero en salir (LIFO, Last In-First Out), es decir, el último elemento insertado en la pila es el primero en ser eliminado. Un elemento puede ser agregado en cualquier momento a una pila, pero solo se puede acceder o eliminar el elemento que esté en la cima o tope de la misma
-
-existen dos actividades o eventos que administran los elementos de una pila, esto también implica que en realidad el valor del dato almacenado no influye en el funcionamiento de la estructura. Estos eventos son: apilar cuando se agrega un nuevo elemento en la cima y desapilar cuando se saca el elemento que está en la cima.
-
-Esto implica que solo se puede acceder al elemento que está en la cima de la pila. La forma de acce- der a los demás elementos de la colección es desapilar cada uno de estos, de a uno a la vez.
-
-una pila puede definirse de la siguiente manera: si consideramos su estructura y funcio- namiento, es una estructura lineal dinámica de datos que no están ordenados y cuyas actividades de inserción y eliminación se realizan a través de un índice llamado cima o tope. Es importante remarcar que el orden de complejidad de las operaciones sobre la pila son de tiempo constante O(1) dado que solo se pueden agregar y quitar elementos desde la parte superior de la misma, por lo que no importa la cantidad de elementos que tenga.
-
-1.	apilar(pila, elemento). Agrega el elemento sobre la cima de la pila;
-
-2.	desapilar(pila). Elimina y devuelve el elemento almacenado en la cima de la pila;
-
-3.	pila_vacia(pila). Devuelve verdadero (true) si la pila no contiene elementos;
-
-4.	cima(pila). Devuelve el valor del elemento que está almacenado en la cima de la pila pero sin eliminarlo;
-
-5.	tamaño(pila). Devuelve la cantidad de elementos en la pila.
-definimos nodo y pila:
-clase nodoPila
-
-```bash
-class nodoPila(obejct):
+class nodoPila(object):
     info , sig = None, None
-```
 
-clase Pila
+class Pila(object):
+    def __init__(self):
+        self.cima = None
+        self.tamanio = 0
 
-```bash
-
-```
-
-definir las funciones mencionadas previamente.
-
-```bash
-#continuación de la clse de la pila
     def apilar(pila, dato): #self=pila de estadica a dinamino
         """Apila el dato sobre la cima  de la pila"""
         nodo= nodoPila() #crear nodo
@@ -61,12 +32,8 @@ definir las funciones mencionadas previamente.
             return pila.cima.info # devuelve el info de la cima de la pila
         else:
             return None# si es vacia devuelve vacia
-```
 
-barrido de la pila
-
-```bash
-def barrido(pila):
+    def barrido(pila):
         """Muestra e contenidod de una pila sin perder datos"""
 
         paux = Pila() # crea una nueva pila paux= pila auxiliar
@@ -79,9 +46,6 @@ def barrido(pila):
             dato = desapilar(paux) #desapilar la pila "paux"
             apilar(pila,dato) # almacenar de nuevo a la pila original
 
-            
-```
-
 
 
 """
@@ -90,7 +54,7 @@ En este caso se tiene una pila de números enteros
 y se desea dividirla en dos pilas, 
 una con los números pares y otra con los impares:
 """
-```bash
+
 pdatos = Pila() # pila datos la principal
 ppar = Pila() # pila para número pares
 pimpar = Pila() # pila para número impares
@@ -110,8 +74,3 @@ while (not Pila.pila_vacia(pdatos)): #ver la pila proncipal esta vacia o no
 while (not Pila.pila_vacia(ppar)):
     dato= Pila.desapilar(ppar)# mostrar los datos almacena en la pila de par o impar
     print(dato)
-
-```
-explica de las acciones realizadas para la resolucion del ejercicio:
-
-Primero se deben importar del TDA pila las funciones que vamos a utilizar para resolver el problema, luego se crean las variables necesarias de tipo pila. Luego, después de cargar los datos en la pila, se procede a eliminar el elemento en la cima de la pila y se determina si el elemento desapilado es par o impar para apilarlo en la pila correspondiente (par o impar). Y se repite el mismo procedimiento para cada elemento hasta que la pila quede vacía para finalmente mostrar el contenido de ambas pilas.
