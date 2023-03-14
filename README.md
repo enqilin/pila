@@ -28,7 +28,12 @@ class nodoPila(obejct):
 clase Pila
 
 ```bash
-
+class Pila(object):
+"""Clase Pila"""
+    def __init__(self):
+    """Crear una pila cavia"""
+        self.cima = None 
+        self.tamanio = 0
 ```
 
 definir las funciones mencionadas previamente.
