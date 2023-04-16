@@ -57,17 +57,25 @@ def numero():
     ppar = Pila() # pila para número pares
     pimpar = Pila() # pila para número impares
     dato = int(input("Ingrese un número - 0 para salir "))
-
-    while (dato==0): # para salir del procesar el algoritmo
+    while (dato!=0): # para salir del procesar el algoritmo
         Pila.apilar(pdatos,dato)
         dato = int(input("Ingrese un número - 0 para salir "))
     while (not Pila.pila_vacia(pdatos)): #ver la pila proncipal esta vacia o no
         dato = Pila.desapilar(pdatos) #desapilar el pdato para despues almacena de otro pila
         if (dato %2 ==0):
-            dato = Pila.apilar(ppar,dato) #par apilar el dato en la pila par
+            Pila.apilar(ppar,dato) #par apilar el dato en la pila par
         else:
-            dato = Pila.apilar(pimpar,dato) #impar apilar el dato en la pila impar
+            Pila.apilar(pimpar,dato) #impar apilar el dato en la pila impar
     while (not Pila.pila_vacia(ppar)):
+        lista =[]
         dato= Pila.desapilar(ppar)# mostrar los datos almacena en la pila de par o impar
-        return print(dato),print(ppar), print(pimpar)
+        lista.append(dato)
+        print(lista)
+    while not Pila.pila_vacia(pimpar):
+        lista = []
+        dato = Pila.desapilar(pimpar)
+        lista.append(dato)
+        print(lista)
+
+
 numero()
